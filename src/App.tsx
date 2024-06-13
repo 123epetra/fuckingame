@@ -1,27 +1,28 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-export default function App(){
+export default function App() {
+  const [value, setValue] = useState('');
 
-  const [value, setValue] = useState('')
-  
-  function handleClick(event:React.ChangeEvent<HTMLInputElement>){
-
-    if(event.currentTarget.value === 'fuck'){
-      setValue('you are dead')
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const inputValue = event.target.value;
+    if (inputValue.toLowerCase() === 'fuck') {
+      setValue('you are dead');
+    } else {
+      setValue(inputValue);
     }
-    else{
-      setValue(event.currentTarget.value)
-    }
-
-
   }
-  
-  return(
-    <div>
-    <h1>Hello</h1>
-    <input type='text' value={value} placeholder='say fuck' onChange={handleClick}></input>
-    <p>{value}</p>
-    </div>
 
-  )
+  return (
+    <div style={{ padding: '20px', maxWidth: '600px', margin: 'auto' }}>
+      <h1>Hello</h1>
+      <input
+        type="text"
+        value={value}
+        placeholder="say something"
+        onChange={handleChange}
+        style={{ width: '100%', padding: '10px', fontSize: '16px' }}
+      />
+      <p>{value}</p>
+    </div>
+  );
 }
