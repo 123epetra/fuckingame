@@ -18,7 +18,7 @@ export default function App() {
       <input
         type="text"
         value={value}
-        placeholder="say something"
+        placeholder="say fuck"
         onChange={handleChange}
         style={{ width: '100%', padding: '10px', fontSize: '16px' }}
       />
